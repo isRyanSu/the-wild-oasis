@@ -20,14 +20,14 @@ export default function App() {
           <div>
             <Heading as="h2">Check in and out</Heading>
             <Button
-              variation="primary"
+              $variation="primary"
               size="small"
               onClick={() => alert('Check in')}
             >
               Check in
             </Button>
             <Button
-              variation="primary"
+              $variation="primary"
               size="small"
               onClick={() => alert('Check out')}
             >
