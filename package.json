@@ -8,13 +8,15 @@
     "build": "tsc && vite build",
     "format": "prettier --write --list-different .",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:css": "stylelint --fix './src/**/*.tsx'",
     "prepare": "husky && husky install",
     "preview": "vite preview",
     "commit": "cz"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -34,7 +36,11 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.4",
+    "postcss-styled-syntax": "^0.6.4",
     "prettier": "^3.2.5",
+    "stylelint": "^16.5.0",
+    "stylelint-config-recess-order": "^5.0.1",
+    "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   },
