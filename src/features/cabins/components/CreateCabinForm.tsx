@@ -20,7 +20,11 @@ type FormData = {
   image: FileList
 }
 
-function CreateCabinForm() {
+interface CreateCabinFormProps {
+  onCloseModal?: () => void
+}
+
+function CreateCabinForm({ onCloseModal }: CreateCabinFormProps) {
   const { createCabin, isCreating } = useCreateCabin()
 
   const {
@@ -35,7 +39,7 @@ function CreateCabinForm() {
       maxCapacity: '',
       regularPrice: '',
       discount: '',
-      image: undefined,
+      image: undefined as unknown as FileList,
       description: '',
     },
   })
@@ -51,14 +55,18 @@ function CreateCabinForm() {
 
     createCabin(newCabinData, {
       onSuccess: () => {
-        // 创建 Cabin 成功后清空表单
+        // 创建 Cabin 成功后清空表单并且关闭 Modal
         reset()
+        onCloseModal?.()
       },
     })
   }
 
   return (
-    <Form type="normal" onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      type={onCloseModal ? 'modal' : 'normal'}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           id="name"
@@ -140,7 +148,11 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow>
-        <Button type="reset" $variation="secondary">
+        <Button
+          $variation="secondary"
+          type="reset"
+          onClick={() => onCloseModal?.()}
+        >
           Cancel
         </Button>
         <Button disabled={isCreating}>Create</Button>
