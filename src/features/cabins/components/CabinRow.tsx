@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { SquarePen, Trash } from 'lucide-react'
 
 import styled from 'styled-components'
@@ -6,6 +5,9 @@ import styled from 'styled-components'
 import EditCabinForm from '@/features/cabins/components/EditCabinForm'
 
 import useDeleteCabin from '@/features/cabins/hooks/useDeleteCabin'
+
+import Modal from '@/components/Modal'
+import ConfirmDelete from '@/components/ConfirmDelete'
 
 import { formatCurrency } from '@/utils/helpers'
 
@@ -63,39 +65,47 @@ interface CabinRowProps {
 }
 
 function CabinRow({ cabin }: CabinRowProps) {
-  const [showEditCabinForm, setShowEditCabinForm] = useState(false)
   const { deleteCabin, isDeleting } = useDeleteCabin()
 
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin
 
   return (
-    <>
-      <TableRow role="row">
-        <Img src={image} />
-        <Cabin>{name}</Cabin>
-        <div>Fits up to {maxCapacity} guests</div>
-        <Price>{formatCurrency(regularPrice)}</Price>
-        {discount ? (
-          <Discount>{formatCurrency(discount)}</Discount>
-        ) : (
-          <span>&mdash;</span>
-        )}
-        <div>
-          <button
-            onClick={() =>
-              setShowEditCabinForm((showEditCabinForm) => !showEditCabinForm)
-            }
-          >
-            <SquarePen />
-          </button>
-          <button onClick={() => deleteCabin(id)} disabled={isDeleting}>
-            <Trash />
-          </button>
-        </div>
-      </TableRow>
-      {/* EditCabinForm */}
-      {showEditCabinForm && <EditCabinForm selecedCabin={cabin} />}
-    </>
+    <TableRow role="row">
+      <Img src={image} />
+      <Cabin>{name}</Cabin>
+      <div>Fits up to {maxCapacity} guests</div>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      {discount ? (
+        <Discount>{formatCurrency(discount)}</Discount>
+      ) : (
+        <span>&mdash;</span>
+      )}
+      <div>
+        <Modal>
+          <Modal.Open openName="edit-cabin-form">
+            <button>
+              <SquarePen />
+            </button>
+          </Modal.Open>
+          <Modal.Window windowName="edit-cabin-form">
+            <EditCabinForm selecedCabin={cabin} />
+          </Modal.Window>
+
+          <Modal.Open openName="delete-cabin-form">
+            <button>
+              <Trash />
+            </button>
+          </Modal.Open>
+          <Modal.Window windowName="delete-cabin-form">
+            <ConfirmDelete
+              resourceName="cabin"
+              disabled={isDeleting}
+              onConfirm={() => deleteCabin(id)}
+            />
+          </Modal.Window>
+        </Modal>
+      </div>
+    </TableRow>
   )
 }
 

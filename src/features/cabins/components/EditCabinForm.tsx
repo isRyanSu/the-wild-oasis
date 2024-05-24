@@ -20,7 +20,12 @@ type FormData = {
   image: string | FileList
 }
 
-function EditCabinForm({ selecedCabin }: { selecedCabin: Cabin }) {
+interface EditCabinFormProps {
+  selecedCabin: Cabin
+  onCloseModal?: () => void
+}
+
+function EditCabinForm({ selecedCabin, onCloseModal }: EditCabinFormProps) {
   const { editCabin, isEditing } = useEditCabin()
   const {
     register,
@@ -50,11 +55,22 @@ function EditCabinForm({ selecedCabin }: { selecedCabin: Cabin }) {
         : (formData.image as string), // 如果图片发生了变化，则提取 FileList 数组中的第一个 File 对象作为图片，否则使用原本的图片
     }
 
-    editCabin({ id: selecedCabin.id, newCabinData, isImageChanged })
+    editCabin(
+      { id: selecedCabin.id, newCabinData, isImageChanged },
+      {
+        onSuccess: () => {
+          // 编辑 Cabin 成功后关闭 Modal
+          onCloseModal?.()
+        },
+      },
+    )
   }
 
   return (
-    <Form type="normal" onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      type={onCloseModal ? 'modal' : 'normal'}
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <FormRow label="Cabin name" error={errors?.name?.message}>
         <Input
           id="name"
@@ -136,7 +152,11 @@ function EditCabinForm({ selecedCabin }: { selecedCabin: Cabin }) {
       </FormRow>
 
       <FormRow>
-        <Button type="reset" $variation="secondary">
+        <Button
+          $variation="secondary"
+          type="reset"
+          onClick={() => onCloseModal?.()}
+        >
           Cancel
         </Button>
         <Button disabled={isEditing}>Edit</Button>
