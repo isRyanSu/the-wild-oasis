@@ -16,7 +16,7 @@ const variations = {
   `,
   secondary: css`
     color: var(--color-accent-600);
-    background: var(--color-accent-0);
+    background: white;
     border: 1px solid var(--color-accent-200);
 
     &:hover {

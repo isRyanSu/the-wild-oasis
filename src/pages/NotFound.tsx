@@ -20,7 +20,7 @@ const Box = styled.div`
   text-align: center;
 
   /* box */
-  background-color: var(--color-accent-0);
+  background-color: white;
   border: 1px solid var(--color-accent-100);
   border-radius: var(--border-radius-md);
 
