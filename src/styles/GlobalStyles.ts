@@ -3,30 +3,30 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
 :root {
   /* Primary */
-  --color-primary-50: #E1E8EF;
-  --color-primary-100: #D4DEE7;
-  --color-primary-200: #B7C7D7;
-  --color-primary-300: #99B0C7;
-  --color-primary-400: #7C99B6;
-  --color-primary-500: #5E82A6;
-  --color-primary-600: #4C6B8A;
-  --color-primary-700: #3C546C;
-  --color-primary-800: #2C3D4F;
-  --color-primary-900: #1B2631;
-  --color-primary-950: #141C24;
+  --color-primary-50: #fefce8;
+  --color-primary-100: #fef9c3;
+  --color-primary-200: #fef08a;
+  --color-primary-300: #fde047;
+  --color-primary-400: #facc15;
+  --color-primary-500: #eab308;
+  --color-primary-600: #ca8a04;
+  --color-primary-700: #a16207;
+  --color-primary-800: #854d0e;
+  --color-primary-900: #713f12;
+  --color-primary-950: #422006;
 
   /* Accent */
-  --color-accent-50: #FAF5F0;
-  --color-accent-100: #F4ECE1;
-  --color-accent-200: #E8D6BF;
-  --color-accent-300: #DDC2A2;
-  --color-accent-400: #D2AF84;
-  --color-accent-500: #C69963;
-  --color-accent-600: #B78343;
-  --color-accent-700: #926835;
-  --color-accent-800: #6C4D28;
-  --color-accent-900: #4B351B;
-  --color-accent-950: #382814;
+  --color-accent-50: #f9fafb;
+  --color-accent-100: #f3f4f6;
+  --color-accent-200: #e5e7eb;
+  --color-accent-300: #d1d5db;
+  --color-accent-400: #9ca3af;
+  --color-accent-500: #6b7280;
+  --color-accent-600: #4b5563;
+  --color-accent-700: #374151;
+  --color-accent-800: #1f2937;
+  --color-accent-900: #111827;
+  --color-accent-950: #030712;
 
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
