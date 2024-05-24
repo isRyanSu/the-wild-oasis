@@ -8,6 +8,7 @@ import useDeleteCabin from '@/features/cabins/hooks/useDeleteCabin'
 
 import Table from '@/components/Table'
 import Modal from '@/components/Modal'
+import Menus from '@/components/Menus'
 import ConfirmDelete from '@/components/ConfirmDelete'
 
 import { formatCurrency } from '@/utils/helpers'
@@ -69,28 +70,34 @@ function CabinRow({ cabin }: CabinRowProps) {
         <span>&mdash;</span>
       )}
       <div>
+        {/* Modal */}
         <Modal>
-          <Modal.Open openName="edit-cabin-form">
-            <button>
-              <SquarePen />
-            </button>
-          </Modal.Open>
-          <Modal.Window windowName="edit-cabin-form">
-            <EditCabinForm selecedCabin={cabin} />
-          </Modal.Window>
-
-          <Modal.Open openName="delete-cabin-form">
-            <button>
-              <Trash />
-            </button>
-          </Modal.Open>
-          <Modal.Window windowName="delete-cabin-form">
-            <ConfirmDelete
-              resourceName="cabin"
-              disabled={isDeleting}
-              onConfirm={() => deleteCabin(id)}
-            />
-          </Modal.Window>
+          {/* Menus */}
+          <Menus.Menu>
+            <Menus.Toggle id={String(cabin.id)} />
+            <Menus.List id={String(cabin.id)}>
+              {/* Modal Open */}
+              <Modal.Open openName="edit-cabin-form">
+                <Menus.Button icon={<SquarePen />}>Edit</Menus.Button>
+              </Modal.Open>
+              {/* Modal Open */}
+              <Modal.Open openName="delete-cabin-form">
+                <Menus.Button icon={<Trash />}>Delete</Menus.Button>
+              </Modal.Open>
+            </Menus.List>
+            {/* Modal Window */}
+            <Modal.Window windowName="edit-cabin-form">
+              <EditCabinForm selecedCabin={cabin} />
+            </Modal.Window>
+            {/* Modal Window */}
+            <Modal.Window windowName="delete-cabin-form">
+              <ConfirmDelete
+                resourceName="cabin"
+                disabled={isDeleting}
+                onConfirm={() => deleteCabin(id)}
+              />
+            </Modal.Window>
+          </Menus.Menu>
         </Modal>
       </div>
     </Table.Row>
