@@ -6,23 +6,11 @@ import EditCabinForm from '@/features/cabins/components/EditCabinForm'
 
 import useDeleteCabin from '@/features/cabins/hooks/useDeleteCabin'
 
+import Table from '@/components/Table'
 import Modal from '@/components/Modal'
 import ConfirmDelete from '@/components/ConfirmDelete'
 
 import { formatCurrency } from '@/utils/helpers'
-
-const TableRow = styled.div`
-  display: grid;
-  grid-template-columns: 0.6fr 1.8fr 2.2fr 1fr 1fr 1fr;
-  column-gap: 2.4rem;
-  align-items: center;
-  padding: 1.4rem 2.4rem;
-  text-align: center;
-
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--color-accent-100);
-  }
-`
 
 const Img = styled.img`
   display: block;
@@ -31,7 +19,7 @@ const Img = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: var(--border-radius-tiny);
-  transform: scale(1.6);
+  transform: scale(1.3);
 `
 
 const Cabin = styled.div`
@@ -70,7 +58,7 @@ function CabinRow({ cabin }: CabinRowProps) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin
 
   return (
-    <TableRow role="row">
+    <Table.Row>
       <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
@@ -105,7 +93,7 @@ function CabinRow({ cabin }: CabinRowProps) {
           </Modal.Window>
         </Modal>
       </div>
-    </TableRow>
+    </Table.Row>
   )
 }
 
