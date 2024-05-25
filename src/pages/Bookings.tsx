@@ -1,12 +1,18 @@
-import Heading from '@/components/Heading'
+import BookingTable from '@/features/bookings/components/BookingTable'
+
 import Row from '@/components/Row'
+import Heading from '@/components/Heading'
 
 function Bookings() {
   return (
-    <Row type="horizontal">
-      <Heading as="h1">All bookings</Heading>
-      <p>TEST</p>
-    </Row>
+    <>
+      <Row type="horizontal">
+        <Heading as="h1">All bookings</Heading>
+        <p>TEST</p>
+      </Row>
+
+      <BookingTable />
+    </>
   )
 }
 
