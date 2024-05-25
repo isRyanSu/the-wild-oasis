@@ -1,3 +1,4 @@
+import CabinTableOperations from '@/features/cabins/components/CabinTableOperations'
 import CabinTable from '@/features/cabins/components/CabinTable'
 import CabinModal from '@/features/cabins/components/CabinModal'
 
@@ -9,7 +10,7 @@ function Cabins() {
     <>
       <Row type="horizontal">
         <Heading as="h1">All cabins</Heading>
-        <p>Filter / Sort</p>
+        <CabinTableOperations />
       </Row>
       <Row>
         <CabinTable />
