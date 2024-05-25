@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import Logo from '@/components/Logo'
 import Navbar from '@/components/Navbar'
+import Uploader from '@/components/Uploader'
 
 const StyledSidebar = styled.aside`
   display: flex;
@@ -18,6 +19,7 @@ function Sidebar() {
     <StyledSidebar>
       <Logo />
       <Navbar />
+      <Uploader />
     </StyledSidebar>
   )
 }

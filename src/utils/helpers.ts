@@ -1,4 +1,4 @@
-import { formatDistance, parseISO } from 'date-fns'
+import { formatDistance, parseISO, differenceInDays } from 'date-fns'
 
 export function formatCurrency(value: number) {
   return new Intl.NumberFormat('en', {
@@ -14,4 +14,12 @@ export function formatDistanceFromNow(dateStr: string): string {
   })
     .replace('about ', '')
     .replace('in', 'In')
+}
+
+// 计算两个日期之间的天数差，接受两个日期参数，并返回它们之间的天数差
+export function subtractDates(
+  date1: Date | string,
+  date2: Date | string,
+): number {
+  return differenceInDays(parseISO(String(date1)), parseISO(String(date2)))
 }
