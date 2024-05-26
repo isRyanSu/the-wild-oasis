@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom'
-import { SquareCheck, Eye } from 'lucide-react'
+import { SquareCheck, TicketX, Eye } from 'lucide-react'
 import { format, isToday } from 'date-fns'
 
 import styled from 'styled-components'
+
+import useCheckout from '@/features/check-in-out/hooks/useCheckout'
 
 import Table from '@/components/Table'
 import Tag from '@/components/Tag'
@@ -64,6 +66,7 @@ const Amount = styled.div`
 
 function BookingRow({ booking }: BookingRowProps) {
   const navigate = useNavigate()
+  const { checkout } = useCheckout()
 
   const {
     id: bookingId,
@@ -120,6 +123,15 @@ function BookingRow({ booking }: BookingRowProps) {
               onClick={() => navigate(`/checkin/${bookingId}`)}
             >
               Check in
+            </Menus.Button>
+          )}
+          {/* 只有已经登记入住的预订才需要显示 Check out 按钮 */}
+          {status === 'checked-in' && (
+            <Menus.Button
+              icon={<TicketX />}
+              onClick={() => checkout(Number(bookingId))}
+            >
+              Check out
             </Menus.Button>
           )}
           <Menus.Button

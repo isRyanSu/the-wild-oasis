@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import BookingDataBox from '@/features/bookings/components/BookingDataBox'
 
 import useBooking from '@/features/bookings/hooks/useBooking'
+import useCheckout from '@/features/check-in-out/hooks/useCheckout'
 
 import useMoveBack from '@/hooks/useMoveBack'
 
@@ -24,6 +25,7 @@ const HeadingGroup = styled.div`
 
 function BookingDetail() {
   const { isLoadingBooking, booking } = useBooking()
+  const { checkout, isCheckingOut } = useCheckout()
   const navigate = useNavigate()
   const moveBack = useMoveBack()
 
@@ -55,6 +57,15 @@ function BookingDetail() {
         {status === 'unconfirmed' && (
           <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
             Check in
+          </Button>
+        )}
+        {/* 只有已经登记入住的预订才需要显示 Check out 按钮 */}
+        {status === 'checked-in' && (
+          <Button
+            disabled={isCheckingOut}
+            onClick={() => checkout(Number(bookingId))}
+          >
+            Check out
           </Button>
         )}
         <Button $variation="secondary" onClick={moveBack}>
