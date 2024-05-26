@@ -18,7 +18,16 @@ function LoginForm() {
 
     if (!email || !password) return
 
-    login({ email, password })
+    login(
+      { email, password },
+      {
+        onSettled: () => {
+          //  清空输入框
+          setEmail('')
+          setPassword('')
+        },
+      },
+    )
   }
 
   function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
