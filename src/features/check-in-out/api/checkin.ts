@@ -1,10 +1,17 @@
 import supabase from '@/lib/supabase'
 
-async function checkin(bookingId: number) {
+async function checkin(
+  bookingId: number,
+  breakfast?: {
+    hasBreakfast: boolean
+    extrasPrice: number
+    totalPrice: number
+  },
+) {
   // 登记入住
   const { error: checkinError } = await supabase
     .from('Bookings')
-    .update({ status: 'checked-in', isPaid: true })
+    .update({ status: 'checked-in', isPaid: true, ...breakfast })
     .eq('id', bookingId)
     .select()
     .single()

@@ -9,7 +9,17 @@ function useCheckin() {
   const navigate = useNavigate()
 
   const { mutate: checkin, isPending: isChecking } = useMutation({
-    mutationFn: (bookingId: number) => checkinApi(bookingId),
+    mutationFn: ({
+      bookingId,
+      breakfast,
+    }: {
+      bookingId: number
+      breakfast?: {
+        hasBreakfast: boolean
+        extrasPrice: number
+        totalPrice: number
+      }
+    }) => checkinApi(bookingId, breakfast),
     onSuccess: (bookingId: number) => {
       // 弹出登记入住成功信息
       toast.success(`Booking #${bookingId} successfully checked!`)
