@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom'
+import { Eye } from 'lucide-react'
 import { format, isToday } from 'date-fns'
 
 import styled from 'styled-components'
 
 import Table from '@/components/Table'
 import Tag from '@/components/Tag'
+import Menus from '@/components/Menus'
 
 import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers'
 
@@ -60,7 +63,10 @@ const Amount = styled.div`
 `
 
 function BookingRow({ booking }: BookingRowProps) {
+  const navigate = useNavigate()
+
   const {
+    id: bookingId,
     startDate,
     endDate,
     numNights,
@@ -103,6 +109,18 @@ function BookingRow({ booking }: BookingRowProps) {
       </Status>
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
+
+      <Menus.Menu>
+        <Menus.Toggle id={bookingId} />
+        <Menus.List id={bookingId}>
+          <Menus.Button
+            icon={<Eye />}
+            onClick={() => navigate(`/bookings/${bookingId}`)}
+          >
+            See details
+          </Menus.Button>
+        </Menus.List>
+      </Menus.Menu>
     </Table.Row>
   )
 }
