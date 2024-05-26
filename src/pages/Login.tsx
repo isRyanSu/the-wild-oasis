@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+import Logo from '@/components/Logo'
+import Heading from '@/components/Heading'
+import LoginForm from '@/features/authentication/components/LoginForm'
+
 const LoginLayout = styled.main`
   display: grid;
   grid-template-columns: 48rem;
@@ -10,7 +14,13 @@ const LoginLayout = styled.main`
 `
 
 function Login() {
-  return <LoginLayout>Login</LoginLayout>
+  return (
+    <LoginLayout>
+      <Logo />
+      <Heading as="h3">Log in to your account</Heading>
+      <LoginForm />
+    </LoginLayout>
+  )
 }
 
 export default Login
