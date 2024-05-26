@@ -17,12 +17,12 @@ const StyledTable = styled.div`
 `
 
 interface CommonRowProps {
-  columns: string
+  $columns: string
 }
 
 const CommonRow = styled.div<CommonRowProps>`
   display: grid;
-  grid-template-columns: ${(props) => props.columns};
+  grid-template-columns: ${(props) => props.$columns};
   column-gap: 2.4rem;
   align-items: center;
   text-align: center;
@@ -96,7 +96,7 @@ function Header({ children }: HeaderProps): JSX.Element {
   const { columns } = context
 
   return (
-    <StyledHeader as="header" role="row" columns={columns}>
+    <StyledHeader as="header" role="row" $columns={columns}>
       {children}
     </StyledHeader>
   )
@@ -116,7 +116,7 @@ function Row({ children }: RowProps): JSX.Element {
   const { columns } = context
 
   return (
-    <StyledRow role="row" columns={columns}>
+    <StyledRow role="row" $columns={columns}>
       {children}
     </StyledRow>
   )
