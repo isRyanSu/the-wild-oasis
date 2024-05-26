@@ -1,14 +1,17 @@
 import { useNavigate } from 'react-router-dom'
-import { SquareCheck, TicketX, Eye } from 'lucide-react'
+import { SquareCheck, TicketX, Eye, Trash } from 'lucide-react'
 import { format, isToday } from 'date-fns'
 
 import styled from 'styled-components'
 
 import useCheckout from '@/features/check-in-out/hooks/useCheckout'
+import useDeleteBooking from '@/features/bookings/hooks/useDeleteBooking'
 
 import Table from '@/components/Table'
 import Tag from '@/components/Tag'
+import Modal from '@/components/Modal'
 import Menus from '@/components/Menus'
+import ConfirmDelete from '@/components/ConfirmDelete'
 
 import { formatCurrency, formatDistanceFromNow } from '@/utils/helpers'
 
@@ -67,6 +70,7 @@ const Amount = styled.div`
 function BookingRow({ booking }: BookingRowProps) {
   const navigate = useNavigate()
   const { checkout } = useCheckout()
+  const { deleteBooking, isDeleting } = useDeleteBooking()
 
   const {
     id: bookingId,
@@ -113,35 +117,49 @@ function BookingRow({ booking }: BookingRowProps) {
 
       <Amount>{formatCurrency(totalPrice)}</Amount>
 
-      <Menus.Menu>
-        <Menus.Toggle id={bookingId} />
-        <Menus.List id={bookingId}>
-          {/* 只有未确认的预订才需要显示 Check in 按钮 */}
-          {status === 'unconfirmed' && (
+      <Modal>
+        <Menus.Menu>
+          <Menus.Toggle id={bookingId} />
+          <Menus.List id={bookingId}>
+            {/* 只有未确认的预订才需要显示 Check in 按钮 */}
+            {status === 'unconfirmed' && (
+              <Menus.Button
+                icon={<SquareCheck />}
+                onClick={() => navigate(`/checkin/${bookingId}`)}
+              >
+                Check in
+              </Menus.Button>
+            )}
+            {/* 只有已经登记入住的预订才需要显示 Check out 按钮 */}
+            {status === 'checked-in' && (
+              <Menus.Button
+                icon={<TicketX />}
+                onClick={() => checkout(Number(bookingId))}
+              >
+                Check out
+              </Menus.Button>
+            )}
             <Menus.Button
-              icon={<SquareCheck />}
-              onClick={() => navigate(`/checkin/${bookingId}`)}
+              icon={<Eye />}
+              onClick={() => navigate(`/bookings/${bookingId}`)}
             >
-              Check in
+              See details
             </Menus.Button>
-          )}
-          {/* 只有已经登记入住的预订才需要显示 Check out 按钮 */}
-          {status === 'checked-in' && (
-            <Menus.Button
-              icon={<TicketX />}
-              onClick={() => checkout(Number(bookingId))}
-            >
-              Check out
-            </Menus.Button>
-          )}
-          <Menus.Button
-            icon={<Eye />}
-            onClick={() => navigate(`/bookings/${bookingId}`)}
-          >
-            See details
-          </Menus.Button>
-        </Menus.List>
-      </Menus.Menu>
+            {/* Modal Open */}
+            <Modal.Open openName="delete-booking-form">
+              <Menus.Button icon={<Trash />}>Delete</Menus.Button>
+            </Modal.Open>
+          </Menus.List>
+          {/* Modal Window */}
+          <Modal.Window windowName="delete-booking-form">
+            <ConfirmDelete
+              resourceName="booking"
+              disabled={isDeleting}
+              onConfirm={() => deleteBooking(Number(bookingId))}
+            />
+          </Modal.Window>
+        </Menus.Menu>
+      </Modal>
     </Table.Row>
   )
 }

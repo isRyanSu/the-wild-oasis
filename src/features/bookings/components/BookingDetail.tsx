@@ -6,6 +6,7 @@ import BookingDataBox from '@/features/bookings/components/BookingDataBox'
 
 import useBooking from '@/features/bookings/hooks/useBooking'
 import useCheckout from '@/features/check-in-out/hooks/useCheckout'
+import useDeleteBooking from '@/features/bookings/hooks/useDeleteBooking'
 
 import useMoveBack from '@/hooks/useMoveBack'
 
@@ -16,6 +17,8 @@ import Tag from '@/components/Tag'
 import ButtonText from '@/components/ButtonText'
 import ButtonGroup from '@/components/ButtonGroup'
 import Button from '@/components/Button'
+import Modal from '@/components/Modal'
+import ConfirmDelete from '@/components/ConfirmDelete'
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -26,6 +29,7 @@ const HeadingGroup = styled.div`
 function BookingDetail() {
   const { isLoadingBooking, booking } = useBooking()
   const { checkout, isCheckingOut } = useCheckout()
+  const { deleteBooking, isDeleting } = useDeleteBooking()
   const navigate = useNavigate()
   const moveBack = useMoveBack()
 
@@ -68,6 +72,27 @@ function BookingDetail() {
             Check out
           </Button>
         )}
+
+        {/* Modal */}
+        <Modal>
+          {/* Modal Open */}
+          <Modal.Open openName="delete-booking-form">
+            <Button $variation="danger">Delete</Button>
+          </Modal.Open>
+          {/* Modal Window */}
+          <Modal.Window windowName="delete-booking-form">
+            <ConfirmDelete
+              resourceName="booking"
+              disabled={isDeleting}
+              onConfirm={() =>
+                deleteBooking(Number(bookingId), {
+                  onSettled: () => navigate(-1), // 重定向至上一页
+                })
+              }
+            />
+          </Modal.Window>
+        </Modal>
+
         <Button $variation="secondary" onClick={moveBack}>
           Back
         </Button>
