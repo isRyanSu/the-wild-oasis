@@ -76,7 +76,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: var(--color-grey-700);
+  color: var(--color-accent-700);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
@@ -102,15 +102,15 @@ button {
 
 select:disabled,
 input:disabled {
-  background-color: var(--color-grey-200);
-  color: var(--color-grey-500);
+  background-color: var(--color-accent-200);
+  color: var(--color-accent-500);
 }
 
 input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--color-brand-600);
+  outline: 2px solid var(--color-primary-600);
   outline-offset: -1px;
 }
 
