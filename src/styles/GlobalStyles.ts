@@ -3,17 +3,17 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
 :root {
   /* Primary */
-  --color-primary-50: #fefce8;
-  --color-primary-100: #fef9c3;
-  --color-primary-200: #fef08a;
-  --color-primary-300: #fde047;
-  --color-primary-400: #facc15;
-  --color-primary-500: #eab308;
-  --color-primary-600: #ca8a04;
-  --color-primary-700: #a16207;
-  --color-primary-800: #854d0e;
-  --color-primary-900: #713f12;
-  --color-primary-950: #422006;
+  --color-primary-50: #fafaf9;
+  --color-primary-100: #f5f5f4;
+  --color-primary-200: #e7e5e4;
+  --color-primary-300: #d6d3d1;
+  --color-primary-400: #a8a29e;
+  --color-primary-500: #78716c;
+  --color-primary-600: #57534e;
+  --color-primary-700: #44403c;
+  --color-primary-800: #292524;
+  --color-primary-900: #1c1917;
+  --color-primary-950: #0c0a09;
 
   /* Accent */
   --color-accent-50: #f9fafb;
