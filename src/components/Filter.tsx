@@ -51,6 +51,11 @@ function Filter({ filterField, options }: FilterProps) {
   function handleClick(value: string): void {
     searchParams.set(filterField, value)
 
+    // 如果搜索参数中存在 "page" 参数，则将其重置为1，防止分页混乱
+    if (searchParams.get('page')) {
+      searchParams.set('page', '1')
+    }
+
     setSearchParams(searchParams)
   }
 

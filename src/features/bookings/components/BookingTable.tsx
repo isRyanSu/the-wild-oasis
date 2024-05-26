@@ -6,9 +6,10 @@ import Spinner from '@/components/Spinner'
 import Empty from '@/components/Empty'
 import Menus from '@/components/Menus'
 import Table from '@/components/Table'
+import Pagination from '@/components/Pagination'
 
 function BookingTable() {
-  const { isLoadingAllBookings, allBookings } = useBookings()
+  const { isLoadingAllBookings, allBookings, numBookings } = useBookings()
 
   // 如果加载中
   if (isLoadingAllBookings) return <Spinner />
@@ -33,6 +34,9 @@ function BookingTable() {
             <BookingRow key={booking.id} booking={booking} />
           )}
         />
+        <Table.Footer>
+          <Pagination count={numBookings || 0} />
+        </Table.Footer>
       </Table>
     </Menus>
   )
