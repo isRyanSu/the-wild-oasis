@@ -44,7 +44,7 @@ const StyledBookingDataBox = styled.section`
   overflow: hidden;
 
   /* Box */
-  background-color: var(--color-accent-0);
+  background-color: white;
   border: 1px solid var(--color-accent-100);
   border-radius: var(--border-radius-md);
 `

@@ -15,7 +15,7 @@ const StyledSelect = styled.select<StyledSelectProps>`
   padding: 0.8rem 1.2rem;
   font-size: 1.4rem;
   font-weight: 500;
-  background-color: var(--color-accent-0);
+  background-color: white;
   border: 1px solid
     ${(props) =>
       props.type === 'white'
