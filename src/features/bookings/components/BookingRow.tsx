@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Eye } from 'lucide-react'
+import { SquareCheck, Eye } from 'lucide-react'
 import { format, isToday } from 'date-fns'
 
 import styled from 'styled-components'
@@ -113,6 +113,15 @@ function BookingRow({ booking }: BookingRowProps) {
       <Menus.Menu>
         <Menus.Toggle id={bookingId} />
         <Menus.List id={bookingId}>
+          {/* 只有未确认的预订才需要显示 Check in 按钮 */}
+          {status === 'unconfirmed' && (
+            <Menus.Button
+              icon={<SquareCheck />}
+              onClick={() => navigate(`/checkin/${bookingId}`)}
+            >
+              Check in
+            </Menus.Button>
+          )}
           <Menus.Button
             icon={<Eye />}
             onClick={() => navigate(`/bookings/${bookingId}`)}

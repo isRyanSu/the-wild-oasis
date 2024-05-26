@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import styled from 'styled-components'
 
 import BookingDataBox from '@/features/bookings/components/BookingDataBox'
@@ -22,6 +24,7 @@ const HeadingGroup = styled.div`
 
 function BookingDetail() {
   const { isLoadingBooking, booking } = useBooking()
+  const navigate = useNavigate()
   const moveBack = useMoveBack()
 
   // 如果加载中
@@ -48,6 +51,12 @@ function BookingDetail() {
       <BookingDataBox booking={booking} />
 
       <ButtonGroup>
+        {/* 只有未确认的预订才需要显示 Check in 按钮 */}
+        {status === 'unconfirmed' && (
+          <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
+            Check in
+          </Button>
+        )}
         <Button $variation="secondary" onClick={moveBack}>
           Back
         </Button>
