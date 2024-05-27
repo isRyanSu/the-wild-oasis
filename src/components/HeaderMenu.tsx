@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Logout from '@/features/authentication/components/Logout'
 
 import ButtonIcon from '@/components/ButtonIcon'
+import DarkModeToggle from '@/components/DarkModeToggle'
 
 const StyledHeaderMenu = styled.ul`
   display: flex;
@@ -21,6 +22,9 @@ function HeaderMenu() {
         <ButtonIcon onClick={() => navigate('/account')}>
           <User />
         </ButtonIcon>
+      </li>
+      <li>
+        <DarkModeToggle />
       </li>
       <li>
         <Logout />
