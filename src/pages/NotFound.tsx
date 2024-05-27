@@ -11,7 +11,7 @@ const StyledNotFound = styled.main`
   justify-content: center;
   height: 100vh;
   padding: 4.8rem;
-  background-color: var(--color-accent-50);
+  background-color: var(--color-grey-50);
 `
 
 const Box = styled.div`
@@ -20,8 +20,8 @@ const Box = styled.div`
   text-align: center;
 
   /* box */
-  background-color: white;
-  border: 1px solid var(--color-accent-100);
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 
   & h1 {

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const ButtonText = styled.button`
   font-weight: 500;
-  color: var(--color-primary-600);
+  color: var(--color-brand-600);
   text-align: center;
   background: none;
   border: none;
@@ -11,7 +11,7 @@ const ButtonText = styled.button`
 
   &:hover,
   &:active {
-    color: var(--color-primary-700);
+    color: var(--color-brand-700);
   }
 `
 

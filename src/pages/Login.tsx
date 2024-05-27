@@ -10,7 +10,7 @@ const LoginLayout = styled.main`
   gap: 3.2rem;
   place-content: center center;
   min-height: 100vh;
-  background-color: var(--color-accent-50);
+  background-color: var(--color-grey-50);
 `
 
 function Login() {

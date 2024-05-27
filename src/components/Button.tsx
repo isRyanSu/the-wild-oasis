@@ -7,20 +7,20 @@ type ButtonType = {
 
 const variations = {
   primary: css`
-    color: var(--color-primary-50);
-    background-color: var(--color-primary-600);
+    color: var(--color-brand-50);
+    background-color: var(--color-brand-600);
 
     &:hover {
-      background-color: var(--color-primary-700);
+      background-color: var(--color-brand-700);
     }
   `,
   secondary: css`
-    color: var(--color-accent-600);
-    background: white;
-    border: 1px solid var(--color-accent-200);
+    color: var(--color-grey-600);
+    background: var(--color-grey-0);
+    border: 1px solid var(--color-grey-200);
 
     &:hover {
-      background-color: var(--color-accent-50);
+      background-color: var(--color-grey-50);
     }
   `,
   danger: css`

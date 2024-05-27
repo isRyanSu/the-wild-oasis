@@ -11,8 +11,8 @@ const TableContext = createContext<TableContextType | undefined>(undefined)
 const StyledTable = styled.div`
   overflow: hidden;
   font-size: 1.4rem;
-  background-color: white;
-  border: 1px solid var(--color-accent-200);
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-200);
   border-radius: 7px;
 `
 
@@ -32,18 +32,18 @@ const CommonRow = styled.div<CommonRowProps>`
 const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
   font-weight: 600;
-  color: var(--color-accent-600);
+  color: var(--color-grey-600);
   text-transform: uppercase;
   letter-spacing: 0.4px;
-  background-color: var(--color-accent-50);
-  border-bottom: 1px solid var(--color-accent-100);
+  background-color: var(--color-grey-50);
+  border-bottom: 1px solid var(--color-grey-100);
 `
 
 const StyledRow = styled(CommonRow)`
   padding: 1.2rem 2.4rem;
 
   &:not(:last-child) {
-    border-bottom: 1px solid var(--color-accent-100);
+    border-bottom: 1px solid var(--color-grey-100);
   }
 `
 
@@ -55,7 +55,7 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   padding: 1.2rem;
-  background-color: var(--color-accent-50);
+  background-color: var(--color-grey-50);
 
   /* This will hide the footer when it contains no child elements. Possible thanks to the parent selector :has 🎉 */
   &:not(:has(*)) {

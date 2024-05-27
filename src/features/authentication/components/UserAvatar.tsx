@@ -8,7 +8,7 @@ const StyledUserAvatar = styled.div`
   align-items: center;
   font-size: 1.4rem;
   font-weight: 500;
-  color: var(--color-accent-600);
+  color: var(--color-grey-600);
 `
 
 const Avatar = styled.img`
@@ -18,7 +18,7 @@ const Avatar = styled.img`
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  outline: 2px solid var(--color-accent-100);
+  outline: 2px solid var(--color-grey-100);
 `
 function UserAvatar() {
   const { user } = useUser()

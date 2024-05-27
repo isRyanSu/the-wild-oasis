@@ -15,12 +15,12 @@ const StyledSelect = styled.select<StyledSelectProps>`
   padding: 0.8rem 1.2rem;
   font-size: 1.4rem;
   font-weight: 500;
-  background-color: white;
+  background-color: var(--color-grey-0);
   border: 1px solid
     ${(props) =>
       props.type === 'white'
-        ? 'var(--color-accent-100)'
-        : 'var(--color-accent-300)'};
+        ? 'var(--color-grey-100)'
+        : 'var(--color-grey-300)'};
   border-radius: var(--border-radius-sm);
   box-shadow: var(--shadow-sm);
 `

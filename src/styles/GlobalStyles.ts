@@ -2,31 +2,32 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 :root {
-  /* Primary */
-  --color-primary-50: #fafaf9;
-  --color-primary-100: #f5f5f4;
-  --color-primary-200: #e7e5e4;
-  --color-primary-300: #d6d3d1;
-  --color-primary-400: #a8a29e;
-  --color-primary-500: #78716c;
-  --color-primary-600: #57534e;
-  --color-primary-700: #44403c;
-  --color-primary-800: #292524;
-  --color-primary-900: #1c1917;
-  --color-primary-950: #0c0a09;
+  /* Brand */
+  --color-brand-50: #fafaf9;
+  --color-brand-100: #f5f5f4;
+  --color-brand-200: #e7e5e4;
+  --color-brand-300: #d6d3d1;
+  --color-brand-400: #a8a29e;
+  --color-brand-500: #78716c;
+  --color-brand-600: #57534e;
+  --color-brand-700: #44403c;
+  --color-brand-800: #292524;
+  --color-brand-900: #1c1917;
+  --color-brand-950: #0c0a09;
 
-  /* Accent */
-  --color-accent-50: #f9fafb;
-  --color-accent-100: #f3f4f6;
-  --color-accent-200: #e5e7eb;
-  --color-accent-300: #d1d5db;
-  --color-accent-400: #9ca3af;
-  --color-accent-500: #6b7280;
-  --color-accent-600: #4b5563;
-  --color-accent-700: #374151;
-  --color-accent-800: #1f2937;
-  --color-accent-900: #111827;
-  --color-accent-950: #030712;
+  /* Grey */
+  --color-grey-0: #ffffff;
+  --color-grey-50: #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
+  --color-grey-950: #030712;
 
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
@@ -76,7 +77,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  color: var(--color-accent-700);
+  color: var(--color-grey-700);
 
   transition: color 0.3s, background-color 0.3s;
   min-height: 100vh;
@@ -102,15 +103,15 @@ button {
 
 select:disabled,
 input:disabled {
-  background-color: var(--color-accent-200);
-  color: var(--color-accent-500);
+  background-color: var(--color-grey-200);
+  color: var(--color-grey-500);
 }
 
 input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--color-primary-600);
+  outline: 2px solid var(--color-brand-600);
   outline-offset: -1px;
 }
 

@@ -39,7 +39,7 @@ const Cabin = styled.div`
   font-family: Sono, sans-serif;
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--color-accent-600);
+  color: var(--color-grey-600);
 `
 
 const Stacked = styled.div`
@@ -53,7 +53,7 @@ const Stacked = styled.div`
 
   & span:last-child {
     font-size: 1.2rem;
-    color: var(--color-accent-500);
+    color: var(--color-grey-500);
   }
 `
 

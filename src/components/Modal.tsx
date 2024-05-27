@@ -10,7 +10,7 @@ const StyledModal = styled.div`
   top: 50%;
   left: 50%;
   padding: 3.2rem 4rem;
-  background-color: white;
+  background-color: var(--color-grey-0);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
   transition: all 0.5s;

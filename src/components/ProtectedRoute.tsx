@@ -16,7 +16,7 @@ const FullPage = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--color-accent-50);
+  background-color: var(--color-grey-50);
 `
 
 function ProtectedRoute({ children }: ProtectedRouteProps) {

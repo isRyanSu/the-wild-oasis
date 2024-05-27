@@ -42,9 +42,9 @@ const PaginationButton = styled.button<PaginationButtonProps>`
   padding: 0.6rem 1.2rem;
   font-size: 1.4rem;
   font-weight: 500;
-  color: ${(props) => (props.active ? 'var(--color-primary-50)' : 'inherit')};
+  color: ${(props) => (props.active ? 'var(--color-brand-50)' : 'inherit')};
   background-color: ${(props) =>
-    props.active ? 'var(--color-primary-600)' : 'var(--color-accent-50)'};
+    props.active ? 'var(--color-brand-600)' : 'var(--color-grey-50)'};
   border: none;
   border-radius: var(--border-radius-sm);
   transition: all 0.3s;
@@ -63,8 +63,8 @@ const PaginationButton = styled.button<PaginationButtonProps>`
   }
 
   &:hover:not(:disabled) {
-    color: var(--color-primary-50);
-    background-color: var(--color-primary-600);
+    color: var(--color-brand-50);
+    background-color: var(--color-brand-600);
   }
 `
 

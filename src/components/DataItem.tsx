@@ -22,7 +22,7 @@ const Label = styled.span`
   & svg {
     width: 2rem;
     height: 2rem;
-    color: var(--color-primary-600);
+    color: var(--color-brand-600);
   }
 `
 

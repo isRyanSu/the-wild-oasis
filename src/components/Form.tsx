@@ -14,8 +14,8 @@ const Form = styled.form<FormType>`
       padding: 2.4rem 4rem;
 
       /* Box */
-      background-color: white;
-      border: 1px solid var(--color-accent-100);
+      background-color: var(--color-grey-0);
+      border: 1px solid var(--color-grey-100);
       border-radius: var(--border-radius-md);
     `}
 

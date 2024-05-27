@@ -44,8 +44,8 @@ const StyledBookingDataBox = styled.section`
   overflow: hidden;
 
   /* Box */
-  background-color: white;
-  border: 1px solid var(--color-accent-100);
+  background-color: var(--color-grey-0);
+  border: 1px solid var(--color-grey-100);
   border-radius: var(--border-radius-md);
 `
 
@@ -57,7 +57,7 @@ const Header = styled.header`
   font-size: 1.8rem;
   font-weight: 500;
   color: #e0e7ff;
-  background-color: var(--color-primary-500);
+  background-color: var(--color-brand-500);
 
   svg {
     width: 3.2rem;
@@ -88,11 +88,11 @@ const Guest = styled.div`
   gap: 1.2rem;
   align-items: center;
   margin-bottom: 1.6rem;
-  color: var(--color-accent-500);
+  color: var(--color-grey-500);
 
   & p:first-of-type {
     font-weight: 500;
-    color: var(--color-accent-700);
+    color: var(--color-grey-700);
   }
 `
 
@@ -124,7 +124,7 @@ const Price = styled.div<{ $isPaid: boolean }>`
 const Footer = styled.footer`
   padding: 1.6rem 4rem;
   font-size: 1.2rem;
-  color: var(--color-accent-500);
+  color: var(--color-grey-500);
   text-align: right;
 `
 

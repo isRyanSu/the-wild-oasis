@@ -27,13 +27,13 @@ const StyledToggle = styled.button`
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-accent-100);
+    background-color: var(--color-grey-100);
   }
 
   & svg {
     width: 2.4rem;
     height: 2.4rem;
-    color: var(--color-accent-700);
+    color: var(--color-grey-700);
   }
 `
 
@@ -58,7 +58,7 @@ const StyledListBase = (
       ref={ref}
       style={{
         position: 'fixed',
-        backgroundColor: 'white',
+        backgroundColor: 'var(--color-grey-0)',
         boxShadow: 'var(--shadow-md)',
         borderRadius: 'var(--border-radius-md)',
         right: `${position.x}px`,
@@ -87,13 +87,13 @@ const StyledButton = styled.button`
   transition: all 0.2s;
 
   &:hover {
-    background-color: var(--color-accent-50);
+    background-color: var(--color-grey-50);
   }
 
   & svg {
     width: 1.6rem;
     height: 1.6rem;
-    color: var(--color-accent-400);
+    color: var(--color-grey-400);
     transition: all 0.3s;
   }
 `

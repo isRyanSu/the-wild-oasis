@@ -17,13 +17,13 @@ const StyledCheckbox = styled.div`
   & input[type='checkbox'] {
     width: 2.4rem;
     height: 2.4rem;
-    accent-color: var(--color-primary-600);
+    accent-color: var(--color-brand-600);
     outline-offset: 2px;
     transform-origin: 0;
   }
 
   & input[type='checkbox']:disabled {
-    accent-color: var(--color-primary-600);
+    accent-color: var(--color-brand-600);
   }
 
   & label {

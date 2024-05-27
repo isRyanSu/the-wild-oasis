@@ -9,9 +9,9 @@ const FileInput = styled.input.attrs({ type: 'file' })`
     margin-right: 1.2rem;
     font: inherit;
     font-weight: 500;
-    color: var(--color-primary-50);
+    color: var(--color-brand-50);
     cursor: pointer;
-    background-color: var(--color-primary-600);
+    background-color: var(--color-brand-600);
     border: none;
     border-radius: var(--border-radius-sm);
     transition:
@@ -19,7 +19,7 @@ const FileInput = styled.input.attrs({ type: 'file' })`
       background-color 0.2s;
 
     &:hover {
-      background-color: var(--color-primary-700);
+      background-color: var(--color-brand-700);
     }
   }
 `
