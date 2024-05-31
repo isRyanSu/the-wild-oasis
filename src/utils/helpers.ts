@@ -23,3 +23,24 @@ export function subtractDates(
 ): number {
   return differenceInDays(parseISO(String(date1)), parseISO(String(date2)))
 }
+
+/**
+ * 获取今天的日期字符串，格式化为 ISO 日期字符串。
+ * 可选参数 `end` 用于指定是否获取当天的结束时间。
+ *
+ * @param {Object} options - 配置项
+ * @param {boolean} options.end - 是否获取当天的结束时间，默认为开始时间
+ * @returns {string} - 格式化的 ISO 日期字符串
+ */
+export function getToday(options: { end?: boolean } = {}): string {
+  const today = new Date()
+
+  // 设置为一天的开始或结束时间
+  if (options.end) {
+    today.setUTCHours(23, 59, 59, 999) // 当天的最后一秒
+  } else {
+    today.setUTCHours(0, 0, 0, 0) // 当天的开始时间
+  }
+
+  return today.toISOString()
+}
