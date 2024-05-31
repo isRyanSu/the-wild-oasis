@@ -5,6 +5,7 @@ import useRecentBookings from '@/features/dashboard/hooks/useRecentBookings'
 import useRecentStays from '@/features/dashboard/hooks/useRecentStays'
 
 import Statistics from '@/features/dashboard/components/Statistics'
+import DurationChart from '@/features/dashboard/components/DurationChart'
 import SalesChart from '@/features/dashboard/components/SalesChart'
 
 import Spinner from '@/components/Spinner'
@@ -34,7 +35,7 @@ function DashboardLayout() {
         confirmedRecentStays={confirmedRecentStays}
       />
       <div>Today's activity</div>
-      <div>Chart stay durations</div>
+      <DurationChart confirmedRecentStays={confirmedRecentStays} />
       <SalesChart numDays={numDays} recentBookings={recentBookings} />
     </StyledDashboardLayout>
   )
