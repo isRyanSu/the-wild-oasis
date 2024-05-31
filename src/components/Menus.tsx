@@ -142,6 +142,8 @@ function Toggle({ id }: ToggleProps): JSX.Element {
   const { openId, close, open, setPosition } = context
 
   function handleClick(e: MouseEvent<HTMLButtonElement>): void {
+    e.stopPropagation()
+
     const rect = (e.target as HTMLElement)
       .closest('button')!
       .getBoundingClientRect()
@@ -175,7 +177,7 @@ function List({ id, children }: ListProps): React.ReactPortal | null {
 
   const { openId, position, close } = context
 
-  const ref = useOutsideClick(close) as React.Ref<HTMLUListElement>
+  const ref = useOutsideClick(close, false) as React.Ref<HTMLUListElement>
 
   if (openId !== id || !position) return null
 
